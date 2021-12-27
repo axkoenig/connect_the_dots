@@ -9,7 +9,7 @@ from connect_the_dots import connect_the_dots
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        "Connects coloured dots on a black image with white lines."
+        "Connects colored dots on a black image with white lines."
     )
     parser.add_argument(
         "--data_dir",

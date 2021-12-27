@@ -43,7 +43,7 @@ class Tests(unittest.TestCase):
     def test_get_point_coords(self):
         test_coords = np.array([[22, 44], [40, 55], [66, 99], [0, 0]])
 
-        # generate black image with randomly coloured dots
+        # generate black image with randomly colored dots
         img = np.zeros((100, 100, 3), "uint8")
         for c in test_coords:
             img[c[0], c[1]] = np.random.rand(3) * 255
