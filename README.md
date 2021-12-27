@@ -6,7 +6,7 @@ This Python package draws lines between colored dots in a black image. You can e
 
 Input Image             | Naive Algorithm |     Bresenham Algorithm
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="data/four_dots.png" width="225"/>  |  <img src="data/four_dots_connected_naive.png" width="225"/>  |  <img src="data/four_dots_connected_bresenham.png" width="225"/>  
+<img src="data/four_dots.png" style="image-rendering: pixelated;" width="230"/>  |  <img src="data/four_dots_connected_naive.png" style="image-rendering: pixelated" width="230"/>  |  <img src="data/four_dots_connected_bresenham.png" style="image-rendering: pixelated" width="230"/>  
 
 
 ## Installation
