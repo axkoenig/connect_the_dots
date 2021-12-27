@@ -4,9 +4,18 @@ This Python package draws lines between colored dots in a black image. You can e
 - The [naive](https://en.wikipedia.org/wiki/Line_drawing_algorithm) algorithm is simply based on the equation of a line. It is slow since it performs floating point multiplication in each iteration and it generates sparse results for very steep lines.
 - The [Bresenham](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) algorithm is a classic line-drawing algorithm based solely on integer arithmetic, which is fast to compute. Starting from one coordinate and depending on an error variable, either x or y is incremented and the current pixel is inpainted until the other coordinate is reached.
 
+<style>
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  width: 230px;
+}
+</style>
+
 Input Image             | Naive Algorithm |     Bresenham Algorithm
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="data/four_dots.png" style="image-rendering: pixelated;" width="230"/>  |  <img src="data/four_dots_connected_naive.png" style="image-rendering: pixelated" width="230"/>  |  <img src="data/four_dots_connected_bresenham.png" style="image-rendering: pixelated" width="230"/>  
+<img src="data/four_dots.png"/>  |  <img src="data/four_dots_connected_naive.png"/>  |  <img src="data/four_dots_connected_bresenham.png"/> 
 
 
 ## Installation
