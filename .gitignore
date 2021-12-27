@@ -1,3 +1,8 @@
+# Custom
+logs
+test.sh
+*three_dots*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
