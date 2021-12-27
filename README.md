@@ -16,7 +16,7 @@ Clone this repository and install it using `pip`.
 
 ```bash
 git clone https://github.com/axkoenig/connect_the_dots.git
-pip install connect_the_dots
+pip install -e connect_the_dots
 ```
 
 ## Usage
