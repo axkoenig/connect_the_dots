@@ -56,9 +56,13 @@ You should see the following output in your terminal.
 ```
 ## Results
 
-Input Image             | Naive Algorithm |     Bresenham's Algorithm
+The package allows you to use the `"naive"` or the `"bresenham"` line-drawing algorithm. 
+- The [naive](https://en.wikipedia.org/wiki/Line_drawing_algorithm) algorithm is simply based on the equation of a line. It is slow since it performs floating point multiplication in each iteration and it generates sparse results for very steep lines.
+- The [Bresenham](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) algorithm is a classic line-drawing algorithm based solely on integer arithmetic, which is fast to compute. Starting from one coordinate and depending on an error variable, either x or y is incremented and the current pixel is inpainted until the other coordinate is reached.
+
+Input Image             | Naive Algorithm |     Bresenham Algorithm
 :-------------------------:|:-------------------------:|:-------------------------:
-![](data/four_dots.png)  |  ![](data/four_dots_connected_naive.png)|  ![](data/four_dots_connected_bresenham.png)
+<img src="data/four_dots.png" width="200"/>  |  <img src="data/four_dots_connected_naive.png" width="200"/>  |  <img src="data/four_dots_connected_bresenham.png" width="200"/>  
 
 ## Run Tests 
 
