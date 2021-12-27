@@ -1,5 +1,14 @@
 # Connect The Dots
 
+This Python package draws lines between colored dots in a black image. You can either use the `"naive"` or the `"bresenham"` line-drawing algorithm. 
+- The [naive](https://en.wikipedia.org/wiki/Line_drawing_algorithm) algorithm is simply based on the equation of a line. It is slow since it performs floating point multiplication in each iteration and it generates sparse results for very steep lines.
+- The [Bresenham](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) algorithm is a classic line-drawing algorithm based solely on integer arithmetic, which is fast to compute. Starting from one coordinate and depending on an error variable, either x or y is incremented and the current pixel is inpainted until the other coordinate is reached.
+
+Input Image             | Naive Algorithm |     Bresenham Algorithm
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="data/four_dots.png" width="225"/>  |  <img src="data/four_dots_connected_naive.png" width="225"/>  |  <img src="data/four_dots_connected_bresenham.png" width="225"/>  
+
+
 ## Installation
 
 Clone this repository and install it using `pip`. 
@@ -15,7 +24,7 @@ To see the options you can pass to the `main.py` script run the follwing.
 ```bash
 cd connect_the_dots
 python main.py -h
-usage: Connects coloured dots on a black image with white lines. [-h] [--data_dir DATA_DIR] [--img_name IMG_NAME] [--logs_dir LOGS_DIR]
+usage: Connects colored dots on a black image with white lines. [-h] [--data_dir DATA_DIR] [--img_name IMG_NAME] [--logs_dir LOGS_DIR]
                                                                  [--log_name LOG_NAME] [--algorithm ALGORITHM] [--line_color LINE_COLOR [LINE_COLOR ...]]
                                                                  [--inpaint_start_and_end_pixels INPAINT_START_AND_END_PIXELS]
 
@@ -54,15 +63,6 @@ You should see the following output in your terminal.
 2021-12-27 22:08:47,020 - ConnectTheDots - [INFO]  Processing done!
 2021-12-27 22:08:47,021 - ConnectTheDots - [INFO]  Done.
 ```
-## Results
-
-The package allows you to use the `"naive"` or the `"bresenham"` line-drawing algorithm. 
-- The [naive](https://en.wikipedia.org/wiki/Line_drawing_algorithm) algorithm is simply based on the equation of a line. It is slow since it performs floating point multiplication in each iteration and it generates sparse results for very steep lines.
-- The [Bresenham](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) algorithm is a classic line-drawing algorithm based solely on integer arithmetic, which is fast to compute. Starting from one coordinate and depending on an error variable, either x or y is incremented and the current pixel is inpainted until the other coordinate is reached.
-
-Input Image             | Naive Algorithm |     Bresenham Algorithm
-:-------------------------:|:-------------------------:|:-------------------------:
-<img src="data/four_dots.png" width="200"/>  |  <img src="data/four_dots_connected_naive.png" width="200"/>  |  <img src="data/four_dots_connected_bresenham.png" width="200"/>  
 
 ## Run Tests 
 
