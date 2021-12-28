@@ -120,11 +120,11 @@ class Tests(unittest.TestCase):
         img[coord_1[0], coord_1[1]] = np.random.rand(3) * 255
         img[coord_2[0], coord_2[1]] = np.random.rand(3) * 255
         ctd.save_img(
-            img, join(test_dir, f"test_{algorithm}_draw_line_diagonal_up_before.png")
+            img, join(test_dir, f"test_draw_line_diagonal_up_{algorithm}_before.png")
         )
         img = ctd.draw_line(img, coord_1, coord_2, line_color, "naive")
         ctd.save_img(
-            img, join(test_dir, f"test_{algorithm}_draw_line_diagonal_up_after.png")
+            img, join(test_dir, f"test_draw_line_diagonal_up_{algorithm}_after.png")
         )
 
     def draw_line_diagonal_down(self, algorithm):
@@ -134,11 +134,11 @@ class Tests(unittest.TestCase):
         img[coord_1[0], coord_1[1]] = np.random.rand(3) * 255
         img[coord_2[0], coord_2[1]] = np.random.rand(3) * 255
         ctd.save_img(
-            img, join(test_dir, f"test_{algorithm}_draw_line_diagonal_down_before.png")
+            img, join(test_dir, f"test_draw_line_diagonal_down_{algorithm}_before.png")
         )
         img = ctd.draw_line(img, coord_1, coord_2, line_color, algorithm)
         ctd.save_img(
-            img, join(test_dir, f"test_{algorithm}_draw_line_diagonal_down_after.png")
+            img, join(test_dir, f"test_draw_line_diagonal_down_{algorithm}_after.png")
         )
 
     def connect_the_dots(self, algorithm):
