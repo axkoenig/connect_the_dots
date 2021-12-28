@@ -8,7 +8,7 @@ import numpy as np
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
-ctd = connect_the_dots.ConnectTheDots(0, logger)
+ctd = connect_the_dots.ConnectTheDots(False, logger)
 
 data_dir = join(dirname(dirname(abspath(__file__))), "data")
 img_load_path = join(data_dir, "four_dots.png")
@@ -163,6 +163,30 @@ class Tests(unittest.TestCase):
             img, join(test_dir, f"test_connect_the_dots_{algorithm}_after.png")
         )
 
+    def inpaint_pixels(self, algorithm):
+        img = np.zeros((100, 100, 3), "uint8")
+        coord_1 = np.array([0, 0])
+        coord_2 = np.array([44, 55])
+        color_1 = [255, 0, 0]
+        color_2 = [0, 255, 0]
+        img[coord_1[0], coord_1[1]] = color_1
+        img[coord_2[0], coord_2[1]] = color_2
+
+        # do not inpaint start and end pixels
+        new_img = ctd.connect_the_dots(img, algorithm, line_color)
+        self.assertTrue(
+            np.array_equal(new_img[coord_1[0], coord_1[1]], color_1)
+            and np.array_equal(new_img[coord_2[0], coord_2[1]], color_2)
+        )
+
+        # inpaint the start and end pixels 
+        ctd_inpaint = connect_the_dots.ConnectTheDots(True, logger)
+        new_img = ctd_inpaint.connect_the_dots(img, algorithm, line_color)
+        self.assertTrue(
+            np.array_equal(new_img[coord_1[0], coord_1[1]], line_color)
+            and np.array_equal(new_img[coord_2[0], coord_2[1]], line_color)
+        )
+
     def test_draw_line_diagonal_down_naive(self):
         self.draw_line_diagonal_down("naive")
 
@@ -180,6 +204,12 @@ class Tests(unittest.TestCase):
 
     def test_connect_the_dots_bresenham(self):
         self.connect_the_dots("bresenham")
+
+    def test_inpaint_pixels_naive(self):
+        self.inpaint_pixels("naive")
+
+    def test_inpaint_pixels_bresenham(self):
+        self.inpaint_pixels("bresenham")
 
 
 def remove_old_test_files():
