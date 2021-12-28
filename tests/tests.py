@@ -11,7 +11,7 @@ logger.setLevel(logging.DEBUG)
 ctd = connect_the_dots.ConnectTheDots(0, logger)
 
 data_dir = join(dirname(dirname(abspath(__file__))), "data")
-img_load_path = join(data_dir, "three_dots.png")
+img_load_path = join(data_dir, "four_dots.png")
 
 test_dir = join(dirname(abspath(__file__)), "output")
 if not os.path.exists(test_dir):
@@ -24,7 +24,7 @@ class Tests(unittest.TestCase):
     def test_load_img(self):
         img = ctd.load_img(img_load_path)
         self.assertIsNotNone(img)
-        self.assertEqual(img.shape, (64, 64, 4))
+        self.assertEqual(img.shape, (100, 100, 3))
 
     def test_save_img_png(self):
         img_name = "test_save.png"
