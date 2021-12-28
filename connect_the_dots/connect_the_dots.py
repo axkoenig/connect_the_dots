@@ -2,6 +2,7 @@ from PIL import Image
 import numpy as np
 import itertools
 import logging
+import copy
 
 
 class ConnectTheDots:
@@ -175,6 +176,9 @@ class ConnectTheDots:
     def connect_the_dots(
         self, img: np.ndarray, algorithm: str, line_color: np.ndarray
     ) -> np.ndarray:
+        # make sure not to modify the original image
+        img = copy.deepcopy(img)
+
         coords = self.get_point_coords(img)
 
         # iterate over all possible coordinate pairs
