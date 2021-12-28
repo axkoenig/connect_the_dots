@@ -108,6 +108,10 @@ class ConnectTheDots:
         floating point multiplication in each iteration and it generates sparse results for very
         steep lines.
         """
+        if coord_left[1] > coord_right[1]:
+            raise ValueError(
+                f"Coordinate coord_left is {coord_left} and must be left of coord_right {coord_right}"
+            )
 
         m = self.calc_slope(coord_left, coord_right)
         x_offset_l = 0 if self.inpaint_start_and_end_pixels else 1

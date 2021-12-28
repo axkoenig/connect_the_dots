@@ -84,6 +84,13 @@ class Tests(unittest.TestCase):
         new_img = ctd.draw_line(img, coord_1, coord_2, line_color, "naive")
         self.assertTrue(np.array_equal(img, new_img))
 
+    def test_draw_line_naive_wrong_coords(self):
+        img = np.zeros((100, 100, 3), "uint8")
+        coord_1 = np.array([4, 43])
+        coord_2 = np.array([44, 4])
+        with self.assertRaises(ValueError):
+            ctd.draw_line_naive(img, coord_1, coord_2, line_color)
+
     def test_draw_line_unknown_algorithm(self):
         img = np.zeros((100, 100, 3), "uint8")
         coord_1 = np.array([66, 6])
